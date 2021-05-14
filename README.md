@@ -6,11 +6,11 @@ My program will ask the user for the number of colors they need and the name of 
 
 ### v0.2 Updates
 
-*Coming soon*
+*In this update, the users desired number of colors for the palette are now  created. The program generates the amount of random colors requested as hexadecimals, and stores them into a file.*
 
 ### v1.0 Updates
 
-*Coming soon*
+*In this update, the created palette's details are composed and displayed to the user. This includes the palette's name and colors generated.*
 
 
 ## Developer
@@ -32,9 +32,18 @@ Here is an example of the program running:
 Hello, do you want to generate a color palette(y/n)?
 Y
 Okay, what number of colors do you need(2-10)?
-7
-Great. And what do you want the file to be called?
-colorful.svg
+5
+Great. And what do you want the file/palette to be called?
+myPalette1
+
+Colors created...
+Name: myPalette1
+Colors Generated:
+#ADFF2F
+#FFA500
+#00FFFF
+#FFC0CB
+#F0FFF0
 ```
 
 ## C++ Guide
@@ -67,16 +76,20 @@ I used a do-while loop to gather the users input of how many colors they want. I
 ### File Input and Output
 
 
-Files have been used effictively as the file created was opened for writing. Then the users input was stored in the file and ready for later use.
+Files have been used effictively as the file created was opened for writing. Then the users input was stored in the file and ready for later use. In the end, the palettes information is displayed and the info inside the CSS file is displayed onto the console for the user to see which hexadecimal colors were selected.
 
 ### Arrays/Vectors
 
-*Coming in version 0.2*
+I created a vector of 'string' variables called colors. This vector currently contains 54 different colors in the form of hexadecimal values. This vector allows me to choose random colors from it when needed, and use them to create the color palette.
 
 ### Functions
 
-*Coming in version 0.2*
+I created a function called 'createUniqueColors' which is the return type void. This function is unique as it grabs the requested amount of colors from a vector, and stores them into a file. It takes in two parameters, the first is an integer which holds the number of colors the user wants to use in the palette. And the second is a vector of 'string' variable that contains 54 different hexadecimal values. When executed it takes in these two parameters by value, opens a file, saves the amount of colors into the file, and then closes the file.
+
+I created another function called 'randomNum' which is the return type 'int'. This function is unique because it creates a random number between the numbers 2-10. This function takes in one parameter which is a vector, and is used with pass by value. When called this function randomly chooses one of the integers from the function and returns the value. This function is currently not in use of the program.
+
+Another function I created is called 'hexaCheck' which is the return type 'bool'. This function takes in one parameter which is a string, and is used with pass by value. When called this function takes a string and determines if it is a hexadecimal. If it is, the function returns True, and if it is not a hexadecimal the function returns False.
 
 ### Classes
 
-*Coming in version 1.0*
+I created a class called palette which has three functions. The three function members are 'createUniqueColors', 'colorsChosen', and 'compose'. The attributes of my palette class are defined as name, colors, and number. The 'createUniqueColors' function chooses a certian amount of random colors from a vector depending on the users input, and then stores them into the CSS file. The 'colorsChosen' function opens up the file which stores the random colors chosen, and prints them out onto the screen. The function called 'compose' brings all of the palettes information together and allows the user to see what was created. When run, 'compose' displays the name of the palette created and the random colors that were chosen. 
